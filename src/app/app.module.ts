@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppComponent } from './app.component';
+import {TransferHttpCacheModule} from '@nguniversal/common';
 
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
+@NgModule({ //
   imports: [
-    BrowserModule
+    BrowserModule.withServerTransition({appId: 'frontendtest'}),
+    TransferHttpCacheModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [ HttpClientModule ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
